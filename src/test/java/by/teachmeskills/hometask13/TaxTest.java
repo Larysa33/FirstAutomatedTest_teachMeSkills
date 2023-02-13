@@ -15,11 +15,6 @@ public class TaxTest {
     public static final double HIGHESTPERCENT = 0.30;
 
     public double countTax(double salary) {
-        //Можно ли сюда запихнуть сканер для ввода с консоли? Если раскомитить этот кусок, пишет что для
-        //сканера не найдено конструктора
-        //Scanner scanner = new Scanner();
-        //System.out.println("Введите сумму зп:");
-        //double salary = Math.abs(scanner.nextInt());
         double tax;
         if (salary < 10000) {
             tax = salary * LOWESTPERCENT;
@@ -33,7 +28,7 @@ public class TaxTest {
     }
 
     @Test(dataProvider = "incomeProvider")
-    public void testCountTax(int salary, double expPercent) {
+    public void CountTaxTest(int salary, double expPercent) {
         Assert.assertEquals(countTax(salary), expPercent * salary, String.format("Налог для зарплаты %s должен быть = %s", salary, expPercent));
     }
 
